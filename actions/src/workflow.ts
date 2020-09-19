@@ -527,7 +527,7 @@ export class PulumiMasterWorkflow extends PulumiBaseWorkflow {
                             name: 'Run GoReleaser',
                             uses: 'goreleaser/goreleaser-action@v2',
                             with: {
-                                args: '-f .goreleaser.prerelease.yml --rm-dist --skip-validate',
+                                args: '-f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout 60m',
                                 version: 'latest',
                             },
                         },
@@ -608,7 +608,7 @@ export class PulumiReleaseWorkflow extends PulumiBaseWorkflow {
                         name: 'Run GoReleaser',
                         uses: 'goreleaser/goreleaser-action@v2',
                         with: {
-                            args: 'release --rm-dist',
+                            args: 'release --rm-dist --timeout 60m',
                             version: 'latest',
                         },
                     },
